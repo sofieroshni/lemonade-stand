@@ -1,5 +1,8 @@
-'use client';
+'use client'
 
-export default function Providers({ children }) {
-  return children;
+import { Provider } from 'react-redux'
+import { store } from './store/store'
+
+export function Providers({ children }) {
+  return <Provider store={store}>{children}</Provider>
 }
