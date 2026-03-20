@@ -1,7 +1,23 @@
+// {
+//   "compilerOptions": {
+//     "paths": {
+//       "@/*": ["./app/*"]
+//     }
+//   }
+// }
+
+
+// {
+//   "compilerOptions": {
+//     "paths": {
+//       "@/*": ["./*"]
+//     }
+//   }
+// }
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./app/*"]
+      "@/*": ["./*"]
     }
   }
 }

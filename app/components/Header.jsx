@@ -1,11 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import styles from '@/ui/Header.module.css';  // ← Korrekt sti!
-
+// import styles from '../components/Header';  
+// import styles from './Header.css'
+import styles from '../ui/Header.module.css'
 export default function Header() {
   return (
-    <header className={styles.header}>  {/* ← className, ikke style */}
+    <header className={styles.header}> 
       <h1 className={styles.title}>Min Webshop</h1>
       <nav className={styles.nav}>
         <Link href="/" className={styles.link}>Home</Link>

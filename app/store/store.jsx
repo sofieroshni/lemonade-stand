@@ -1,11 +1,7 @@
-// store/store.js
 import { configureStore } from '@reduxjs/toolkit'
-import lemonadeSlice from '../redux/Lemonadeslice'
+import lemonadeReducer from '../redux/LemonadeSlice'
 export const store = configureStore({
   reducer: {
-    // cart: cartReducer,
-        // lemonadeApi: lemonadeApiReducer
-                lemonade: lemonadeSlice,
-
+    lemonade: lemonadeReducer,
   },
 })

@@ -1,16 +1,32 @@
-import Header from './components/Header';
-import { store } from './store/store';
-import { Provider } from 'react-redux';
+// import Header from './components/Header'
+// import { Providers } from './providers'
+
+
+// export default function RootLayout({ children }) {
+//   return (
+//     <html lang="en">
+//       <body>
+//         <Header></Header>
+//         <Providers>
+//           {children}
+//         </Providers>
+//       </body>
+//     </html>
+//   )
+// }
+
+import Header from './components/Header'
+import { Providers } from './providers'
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <Provider store={store}>
-        <Header />
-        {children}
-        </Provider>
+      <body suppressHydrationWarning>
+        <Header></Header>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
-  );
+  )
 }
