@@ -3,24 +3,30 @@ import { createSlice } from '@reduxjs/toolkit'
 const lemonadeSlice = createSlice({
     name: 'lemonade',
     initialState: {
+        // Dine sædvanlige tal
         buyPrice: 10,
         sellPrice: 15,
         lemonades: 120,
         sold: 0,
         cash: 30,
-        cost: 0, // ti at starte med nul
+        cost: 0,
         revenue: 0,
+
+        // NYT - API data
+        cocktails: [],    // Listen af drinks fra API
+        loading: false,    // Er vi ved at hente data?
+        error: null,       // Er der en fejl?
     },
     reducers: {
+        // Dine gamle reducers
         buyLemon(state){
-            if(state.cash < state.buyPrice) return // hvis state.mængden af cash er mindre end buyPrice har man ikke råd, stop
-            state.lemonades += 1 // ellers skal state.lemonades stige med 1
-            state.cash -= state.buyPrice // købsprisen trækkes fra cash
-            state.cost += state.buyPrice // købsprisen lægges sammen med omsætningen
-
+            if(state.cash < state.buyPrice) return
+            state.lemonades += 1
+            state.cash -= state.buyPrice
+            state.cost += state.buyPrice
         },
         sellLemonade(state){
-            if (state.lemonades <= 0) return // er der ikke flere lemonades skal den stoppe
+            if (state.lemonades <= 0) return
             state.lemonades -= 1
             state.sold += 1
             state.cash += state.sellPrice
@@ -32,17 +38,28 @@ const lemonadeSlice = createSlice({
             state.cash = 0
             state.cost = 0
             state.revenue = 0
-        }
+        },
+
+        // NYT - For API data
+        setLoading(state, action) {
+            state.loading = action.payload  // true eller false
+        },
+        setCocktails(state, action) {
+            state.cocktails = action.payload  // Listen af drinks
+        },
+        setError(state, action) {
+            state.error = action.payload  // Fejlbesked
+        },
     }
 });
 
-// export const { buyLemon, sellLemonade, resetStand } = lemonadeSlice.actions //eksporterer dem så jeg kan bruge dem i min
-// export default lemonadeSlice.reducer
-// chat gpt: 
-export const { buyLemon, sellLemonade, resetStand } = lemonadeSlice.actions
-export default lemonadeSlice.reducer
-//chat gpt end
+export const { 
+    buyLemon, 
+    sellLemonade, 
+    resetStand,
+    setLoading,     
+    setCocktails,    
+    setError         
+} = lemonadeSlice.actions
 
-// createSlice laver automatisk både actions og reducers 
-// initialState er de samme værdier som lærerens context-fil startede med
-// Hver funktion i reducers svarer til en handling brugeren kan gøre
+export default lemonadeSlice.reducer
