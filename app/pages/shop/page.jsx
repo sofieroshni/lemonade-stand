@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { buyLemon, sellLemonade, setLoading, setCocktails, setError } from '../../redux/LemonadeSlice'
 import { useState, useEffect } from 'react'
 import { addTooCart, removeItem } from '../../redux/cartSlice'
-
+// import styles from '../../globals.css'
 export default function Shop() {
   // HENT DATA FRA REDUX (som at se i LEGO-kassen)
   const dispatch = useDispatch()
@@ -39,11 +39,12 @@ export default function Shop() {
   }, [dispatch])
 
   return (
-    <div>
-      <h1>Lemonade Shop</h1>
+   < div className='wrapper'>
+    <div className='headershop'>
+      <h1>Shop</h1>
       
       <div>
-        <label>Your Name</label>
+        <label>Søg</label>
         <input 
           type="text"
           value={name} 
@@ -53,14 +54,15 @@ export default function Shop() {
 
       {/* Dine LEGO-spil */}
       <p>Cash: ${cash}</p>
-      
+      <div className='buttonsdiv'>
       <button onClick={() => dispatch(buyLemon())}>
         Buy Lemon (-$10)
       </button>
       <button onClick={() => dispatch(sellLemonade())}>
         Sell Lemonade (+$15)
       </button>
-
+</div>
+      
       {/* Cocktails fra mit api */}
       <h2>Available Cocktails</h2>
       
@@ -69,7 +71,7 @@ export default function Shop() {
               
 
       {cocktails.length > 0 && (
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '20px', marginTop: '20px'}}>
+        <div className="grid" id='grid'>
           {cocktails.map((drink) => (
             <div key={drink.idDrink}>
               <img 
@@ -100,6 +102,6 @@ Tilføj til cart              </button>
           ))}
         </div>
       )}
-    </div>
+    </div></div>
   )
 }
