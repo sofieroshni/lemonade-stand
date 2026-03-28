@@ -20,26 +20,27 @@
 .footer>button{
 }
 .buttons{
-    background-color: yellow;
+    /* background-color: yellow; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 90%;
 }
 .divwrapper{
-    background-color: yellow;
+    /* background-color: yellow; */
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
-    background-color: brown;
+    /* background-color: brown; */
 }
 .button{
-    /* background-color: red; */
+    background-color: red;
     width: 50%;
 }
 .p{
     font-size:12px;
+  
 }
 /* @media (min-width:700px) {
     .p{

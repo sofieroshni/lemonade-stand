@@ -16,7 +16,7 @@ export default function Header() {
         <Link href="/pages/shop" className={styles.link}>Shop</Link>
         <Link href="/pages/cart" className={styles.link}>Kurv ({cartItems.length})</Link>
         <Link href="/pages/checkout" className={styles.link}>Checkout</Link>
-        <Link href="/pages/dinStand" className={styles.link}>Egen Shop</Link>
+        {/* <Link href="/pages/dinStand" className={styles.link}>Egen Shop</Link> */}
 
       </nav>
     </header>

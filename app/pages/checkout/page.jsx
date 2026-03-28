@@ -1,16 +1,19 @@
 'use client'
 
 import { useSelector } from 'react-redux'
+import styles from '../../ui/Shop.module.css'
+
 
 export default function Checkout() {
   const boughtItems = useSelector(state => state.cart.boughtItems)
 
   return (
-    <div className='bg-red-500 p-4 text-white'>
-      <h1>Checkout - Dine Køb</h1>
-
+    <div>
+      <div className={styles.headershop}>
+      <h1>Checkout</h1>
+      </div>
       {boughtItems.length === 0 ? (
-        <p>Du har ikke købt noget endnu</p>
+        <p className={styles.p}>Du har ikke købt noget endnu</p>
       ) : (
         <div>
           {boughtItems.map((purchase, index) => (

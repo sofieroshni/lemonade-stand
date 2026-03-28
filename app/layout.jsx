@@ -16,3 +16,5 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+//  /**** LINKE 9-16 taget direkte ind i chat pga. min kode ikke virkede.
+// Derfor er supressHydrationWarning sat ind. Hydration er når react forbinder server-renderet Html med client js. prop ign. warnin */

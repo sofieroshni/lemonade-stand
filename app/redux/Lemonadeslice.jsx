@@ -9,8 +9,8 @@ const lemonadeSlice = createSlice({
         lemonades: 120,
         sold: 0,
         cash: 30,
-        cost: 10,
-        revenue: 0,   //hvor mang 
+        cost: 10, //hvor meget jeg har købt for
+        revenue: 0,   //hvor meget jeg har tjent på salgt (r-c =profit)
 
         cocktails: [],    
         loading: false,    
@@ -38,15 +38,19 @@ const lemonadeSlice = createSlice({
             state.revenue = 0
         },
 
+        // chat-gpt
+
         setLoading(state, action) {
-            state.loading = action.payload 
+            state.loading = action.payload //her odaterer jeg om den loader eller ej, action.payload
         },
-        setCocktails(state, action) {
+        setCocktails(state, action) { //her opdaterer jeg cotail arrary. action.payload=[drink1,drink2] state.cocktails er så det array jeg ge,,er o state
             state.cocktails = action.payload  
         },
         setError(state, action) {
-            state.error = action.payload  
-        },
+            state.error = action.payload    // action.payload = fx "Server fejl"
+        // state.error = den fejlbesked jeg vil vise UI
+        },         // chat-gpt END (Egne kommentarer)
+
     }
 });
 

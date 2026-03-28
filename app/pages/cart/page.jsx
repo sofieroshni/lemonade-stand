@@ -57,11 +57,16 @@
 'use client'
 
 import CartPageContent from '../../components/CartPagContent'
+import styles from '../../ui/Shop.module.css'
+
 
 export default function Cart() {
   return (
     <div>
-      <h1>Din Kurv</h1>
+ <div className={styles.headershop}>
+      <h1>Checkout</h1>
+
+        </div>
       <CartPageContent />
     </div>
   )

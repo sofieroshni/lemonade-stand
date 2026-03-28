@@ -12,13 +12,18 @@ export default function CartPageContent() {
   const cash = useSelector(state => state.lemonade.cash)
 
   const totalPrice = cartItems.reduce((sum, item) => sum + (item.price || 0) * item.quantity, 0)
+  
 
   if (cartItems.length === 0) {
     return <p>Din kurv er tom</p>
   }
 
   return (
+    
     <div className={styles.wrapper}>
+
+
+
       {cartItems.map((item) => (
         <div className={styles.div} key={item.idDrink}>
           <div>

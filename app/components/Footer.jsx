@@ -14,7 +14,7 @@ export default function Footer(){
       </div>
 
       <div className={styles.buttons}> 
-        <button  onClick={() => dispatch(buyLemon())}>
+        <button className  onClick={() => dispatch(buyLemon())}>
          Køb citron
         </button>          
         <button onClick={() => dispatch(sellLemonade())}>

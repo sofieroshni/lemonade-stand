@@ -26,7 +26,8 @@ export default function Shop() {
       .then(response => response.json())
       .then(data => {
         // Sig til Redux: "Her er data'en!"
-        dispatch(setCocktails(data.drinks || []))
+        dispatch(setCocktails(data.drinks || [])) //OBS MEGA VIGTIGT TIL EKSAMEN ///her at cocktails ender i arrayet fra min lemonadeSlice s
+        // setCoctails er den actionpsayload jeg laver i L
       })
       .catch(err => {
         // Sig til Redux: "Der var en fejl!"
@@ -42,15 +43,7 @@ export default function Shop() {
    < div className={styles.wrapper}>
     <div className={styles.headershop}>
       <h1>Shop</h1>
-       {/* <Buttons/> */}
-      {/* <div>
-        <label>Søg</label>
-        <input 
-          type="text"
-          value={name} 
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div> */}
+     
 
 </div>
       
@@ -59,18 +52,21 @@ export default function Shop() {
       {loading && <p>Loading cocktails...</p>} 
       {error && <p>Error: {error}</p>}
               
-
+{/* video: hvis cocktail-array ik er tomt så afspil følgende grid */} 
       {cocktails.length > 0 && (
         <div className="grid" id='grid'>
-          {cocktails.map((drink) => (
-            <div key={drink.idDrink}>
+          {cocktails.map((drink) => ( //Gå igennem en liste(loope og lave nyt array)
+            <div key={drink.idDrink}> 
+            {/* husk til video, hvert coctaik/lemonadedrik får unik key baseret på id */}
               <img 
                 src={drink.strDrinkThumb} 
                 alt={drink.strDrink}
               />
-              <h3 className={styles.h3} >{drink.strDrink}</h3>
+              {/* til video-> drink objetekts "felt" */}
+              <h3 className={styles.h3} >{drink.strDrink}</h3> 
               <p className={styles.p}>{drink.strCategory}</p>
-              <button onClick={() => dispatch(addTooCart(drink))}>
+              <button onClick={() => dispatch(addTooCart(drink))}> 
+                {/* video- data sender med argu,emt ,ed drink (objekt/værdi) */}
 Tilføj til cart              </button>
             </div>
           ))}
